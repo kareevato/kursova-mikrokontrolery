@@ -1,5 +1,7 @@
 # ESP32 — монітор освітленості (Serial → Node.js → SQLite → веб)
 
+Публічний репозиторій: **https://github.com/kareevato/kursova-mikrokontrolery**
+
 ## Запуск
 
 ```bash
