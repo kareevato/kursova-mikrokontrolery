@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Сигналізація — монітор датчика</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <h1>Сигналізація</h1>
+      <p class="subtitle">Моніторинг рівня світла (ESP32 + LDR)</p>
+    </header>
+
+    <section class="status-panel" aria-live="polite">
+      <div class="status-card">
+        <span class="label">СТАН</span>
+        <div id="stateBadge" class="badge badge-safe">БЕЗПЕЧНО</div>
+      </div>
+      <div class="status-card">
+        <span class="label">РІВЕНЬ СВІТЛА (ADC)</span>
+        <div id="lightLevel" class="value value-mono">—</div>
+      </div>
+      <div class="status-card">
+        <span class="label">ПРИСТРІЙ</span>
+        <div id="deviceName" class="value">—</div>
+      </div>
+      <div class="status-card">
+        <span class="label">ОСТАННЄ ОНОВЛЕННЯ</span>
+        <div id="lastUpdate" class="value">—</div>
+      </div>
+    </section>
+
+    <section class="log-section">
+      <h2>Журнал подій</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Пристрій</th>
+              <th>Статус</th>
+              <th>Час події</th>
+            </tr>
+          </thead>
+          <tbody id="logBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

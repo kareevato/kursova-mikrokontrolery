@@ -1,0 +1,17 @@
+{
+  "name": "window-monitor",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Бекенд для моніторингу датчика світла (ESP32) + SQLite + веб-панель",
+  "main": "window-monitor/server.js",
+  "scripts": {
+    "start": "node window-monitor/server.js",
+    "dev": "node window-monitor/server.js"
+  },
+  "dependencies": {
+    "@serialport/parser-readline": "^12.0.0",
+    "better-sqlite3": "^11.7.0",
+    "express": "^4.21.0",
+    "serialport": "^12.0.0"
+  }
+}

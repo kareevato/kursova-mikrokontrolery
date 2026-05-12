@@ -1,0 +1,7 @@
+# Ігнорувати залежності та локальну БД
+WEB/node_modules/
+WEB/window-monitor/window_monitor.db
+.DS_Store
+*.log
+.env
+.env.*
