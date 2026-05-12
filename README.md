@@ -1,8 +1,24 @@
-# ESP32 — монітор освітленості (Serial → Node.js → SQLite → веб)
+# Курсова робота
 
-Публічний репозиторій: **https://github.com/kareevato/kursova-mikrokontrolery**
+**Дисципліна:** мікроконтролери  
 
-## Запуск
+**Виконала:** студентка групи **ІР-24** **Карєєва Тетяна**
+
+## Тема
+
+Система моніторингу освітленості на базі **ESP32** з датчиком світла (LDR), індикацією (світлодіод, зумер), **базою даних SQLite**, **бекендом на Node.js** та **веб-інтерфейсом** для відображення стану та журналу подій. Зв’язок з ПК — через **USB (послідовний порт)**.
+
+## Структура проєкту
+
+- `WEB/window-monitor/server.js` — сервер Express, читання даних з COM, запис у SQLite, API та оновлення для веб-сторінки  
+- `WEB/public/` — веб-інтерфейс (HTML, CSS, JavaScript)  
+- `WEB/esp32/` — додатковий приклад прошивки з Wi‑Fi (за потреби)
+
+Після першого запуску сервера створюється файл бази даних `WEB/window-monitor/window_monitor.db`.
+
+## Запуск програми на комп’ютері
+
+У терміналі з кореня цього репозиторію:
 
 ```bash
 cd WEB
@@ -10,34 +26,6 @@ npm install
 npm start
 ```
 
-Відкрийте http://localhost:3000
+У браузері відкрийте адресу **http://localhost:3000**.
 
-- **USB / ESP:** закрийте Serial Monitor у Arduino IDE перед `npm start`.
-- **Порт macOS:** за замовчуванням `SERIAL_PATH=/dev/cu.usbserial-0001`. Список портів: http://localhost:3000/api/ports  
-- Якщо COM не потрібен: `SERIAL_ENABLE=false npm start`
-
-## GitHub (з нуля через термінал)
-
-Покрокова інструкція: **`docs/GITHUB-Z-NU-TERMINAL.md`**
-
-Коротко:
-
-```bash
-gh auth login
-cd "/Users/tetiana.karieieva/Documents/курсова"
-chmod +x scripts/stvoriti-repo-github.sh
-./scripts/stvoriti-repo-github.sh
-```
-
-## GitHub (вручну HTTPS)
-
-Після створення **порожнього** репозиторію на github.com:
-
-```bash
-cd "/Users/tetiana.karieieva/Documents/курсова"
-git remote add origin https://github.com/ВАШ_ЛОГІН/НАЗВА_РЕПО.git
-git branch -M main
-git push -u origin main
-```
-
-Якщо `git remote add` каже, що `origin` уже є: `git remote set-url origin https://github.com/...`
+Перед запуском сервера закрийте **Serial Monitor** у Arduino IDE, якщо плата ESP32 підключена по USB (порт не можуть використовувати дві програми одночасно).
